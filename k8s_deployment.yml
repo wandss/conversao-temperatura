@@ -1,0 +1,22 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tempdeploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: temperatura
+  template:
+    metadata:
+      labels:
+        app: temperatura
+    spec:
+      containers:
+        - name: temperatura
+          image: wandsbr/conversao-temperatura:v1
+          ports:
+            - containerPort: 80
+
+
